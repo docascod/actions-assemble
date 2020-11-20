@@ -1,0 +1,17 @@
+name: 'Assemble your PDFs with DocsAsCode'
+description: 'Action to assemble professionnal documents(PDF). Based on docsAsCode project.'
+author: 'docsascode <docsascode@protonmail.com>'
+inputs:
+  sources:
+    description: 'List of glob patterns to your PDF files'
+    required: true
+    default: '.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.sources }}
+ 
+branding:
+  icon: 'book'
+  color: 'red'

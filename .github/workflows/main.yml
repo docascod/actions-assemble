@@ -1,0 +1,22 @@
+on:
+  push:
+    paths: 
+      - 'Example/*.pdf'
+jobs:
+  assemble_pdf:
+    runs-on: ubuntu-latest
+    name: A job to test this action
+    env:
+      DEFAULT_DESTINATION: 'Example/build/'
+      DEFAULT_NAME: book.pdf
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Assemble
+        uses: ./
+        with:
+          sources: 'Example/*.pdf'
+      - name: Publish
+        uses: actions/upload-artifact@v2
+        with:
+          path: ${{ env.DEFAULT_DESTINATION }}/book.pdf
