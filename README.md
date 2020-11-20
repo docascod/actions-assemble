@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Assemble
-        uses: ./
+        uses: docascod/actions-assemble@1.0
         with:
           sources: 'Example/*.pdf'
       - name: Publish
